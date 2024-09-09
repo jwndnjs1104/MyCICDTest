@@ -28,9 +28,9 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Add SSH Key
-        run: webfactory/ssh-agent@v0.9.0
-        with:
-          ssh-private-key: ${{secrets.OCI_SSH_KEY}}
+        uses: webfactory/ssh-agent@v0.9.0
+        with: 
+            ssh-private-key: ${{secrets.OCI_SSH_KEY}}
       - name: Deploy to OCI 
         run: |
           ssh -o StrictHostKeyChecking=no ${{secrets.OCI_USER}}@${{secrets.OCI_PUBLIC_IP}} << 'EOF'
